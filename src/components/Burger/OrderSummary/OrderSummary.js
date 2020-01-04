@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
-import Button from '../../UI/Button/Button'
+import Button from '@components/UI/Button/Button'
 
 const orderSummary = (props) => {
     const ingredientSummary = Object.keys(props.ingredients)
@@ -19,6 +19,7 @@ const orderSummary = (props) => {
             <ul>
                 {ingredientSummary}
             </ul>
+            <p><strong>Total Price: {props.price.toFixed(2)}</strong></p>
             <p>Continue to checkout ?</p>
             <Button btnType="Danger" clicked={props.purchaseCanceled}>CANCEL</Button>
             <Button btnType="Success" clicked={props.purchaseContinued}>CONTINUE</Button>
@@ -27,6 +28,7 @@ const orderSummary = (props) => {
 };
 
 orderSummary.propTypes = {
+    price: PropTypes.string.isRequired,
     ingredients: PropTypes.object.isRequired,
     purchaseCanceled: PropTypes.func.isRequired,
     purchaseContinued: PropTypes.func.isRequired
