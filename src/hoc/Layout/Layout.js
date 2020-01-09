@@ -1,14 +1,9 @@
 import React, {Fragment} from 'react';
 import classes from './Layout.css';
-import Toolbar from '../Navigation/Toolbar/Toolbar'
-import SideDrawer from "../Navigation/SideDrawer/SideDrawer";
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar'
+import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
 
 class Layout extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.props = props;
-    }
 
     state = {
         showSideDrawer: false
@@ -35,6 +30,6 @@ class Layout extends React.Component {
             </Fragment>
         )
     };
-};
+}
 
 export default Layout;
