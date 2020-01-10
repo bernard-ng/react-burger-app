@@ -4,11 +4,10 @@ import Modal from "../../components/UI/Modal/Modal";
 export default (WrappedComponent, axios) => {
     return class extends React.Component {
 
-        state = {
-            error: false
-        };
+        constructor(props) {
+            super(props);
+            this.props = props;
 
-        componentDidMount() {
             axios.interceptors.request.use(request => {
                 this.setState({error: false});
                 return request;
@@ -18,6 +17,10 @@ export default (WrappedComponent, axios) => {
                 this.setState({error})
             });
         }
+
+        state = {
+            error: false
+        };
 
         render() {
             return (
